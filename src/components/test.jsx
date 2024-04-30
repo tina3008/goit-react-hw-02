@@ -1,5 +1,7 @@
-export default function Card({ children }) {   
+export default const Card = () => {   
+   
+        return <button>Click me!</button>;
+    };
 
-        return <div>{ children }</div>;
-      };
+       
   
