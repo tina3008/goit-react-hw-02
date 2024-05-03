@@ -1,32 +1,58 @@
-// import Card from './test'
+ import { useState, useEffect } from "react";
 
-// function App() {
-
-//   return (
-//     <>
-//      <Card></Card>
-//     </>
-//   )
-// }
-import { useState } from 'react';
-
-const ClickCounter = ({ value, onUpdate }) => {
-	return  <button onClick={onUpdate}>Current: {value}</button>
-};
+import Description from './description/Description'
+import Feedback from './Feedback/Feedback';
+import Options from './Options/Options'
 
 const App = () => {
-	const [clicks, setClicks] = useState(0);
+    const [state, setState] = useState({
+        good: 0,
+        neutral: 0,
+        bad: 0
+      });
 
-	const handleClick = () => {
-    setClicks(clicks + 1);
-  };
+            const updateGood = () => {
+        setState({
+        ...state,
+        good: state.good + 1
+      });
+    };
+    
+    const updateNeutral = () => {
+        setState({
+      ...state,
+      neutral: state.neutral + 1
+    });
+    };
+    
+    const updateBad = () => {
+        setState({
+      ...state,
+      bad: state.bad + 1
+    });
+    };
+    const updateFeedback = feedbackType => {
+        // Тут використовуй сеттер, щоб оновити стан
+       }
+ return(
 
-  return (
-    <>
-			<ClickCounter value={clicks} onUpdate={handleClick} />
-			<ClickCounter value={clicks} onUpdate={handleClick} />
-    </>
-  );
+<>
+<Description/>
+<Options
+good= {updateGood}
+neutral= {updateNeutral}
+bad= {updateBad}
+
+/>
+<Feedback
+feedback={state}
+
+/>
+
+</>
+ );
 };
+
+
 
  export default App
