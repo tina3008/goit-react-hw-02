@@ -34,6 +34,7 @@ const App = () => {
   for (let i of Object.values(state)) {
     totalFeedback += i;
   }
+  const positive = Math.round((state.good / totalFeedback) * 100);
 
   return (
     <>
@@ -45,7 +46,7 @@ const App = () => {
       />
 
       {totalFeedback > 0 ? (
-        <Feedback feedback={state} totalFeedback={totalFeedback} />
+        <Feedback feedback={state} totalFeedback={totalFeedback} positive={positive} />
       ) : (
         <Notification />
       )}
