@@ -11,39 +11,23 @@ const App = () => {
         bad: 0
       });
 
-            const updateGood = () => {
-        setState({
-        ...state,
-        good: state.good + 1
-      });
-    };
     
-    const updateNeutral = () => {
-        setState({
+
+const updateFeedback = feedbackType => {
+  setState({
       ...state,
-      neutral: state.neutral + 1
-    });
-    };
-    
-    const updateBad = () => {
-        setState({
-      ...state,
-      bad: state.bad + 1
-    });
-    };
-    const updateFeedback = feedbackType => {
-        // Тут використовуй сеттер, щоб оновити стан
-       }
+    [feedbackType]: state[feedbackType] + 1,
+  });
+};
+
  return(
 
 <>
 <Description/>
 <Options
-good= {updateGood}
-neutral= {updateNeutral}
-bad= {updateBad}
-
+updateFeedback={updateFeedback}
 />
+
 <Feedback
 feedback={state}
 
