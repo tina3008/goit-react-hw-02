@@ -1,27 +1,24 @@
 import css from "./Options.module.css";
 
-export default function Options({ updateFeedback, totalFeedback }) {
-  const hendleFeedback = () => {
-    updateFeedback("good", 0);
-    updateFeedback("neutral", 0);
-    updateFeedback("bad", 0);
-  };
+export default function Options({ updateFeedback, totalFeedback, feedbackReset }) {
+
   return (
     <div className={css.buttonsBlock}>
       <button className={css.button} onClick={() => updateFeedback("good")}>
-        good
+        Good
       </button>
       <button className={css.button} onClick={() => updateFeedback("neutral")}>
-        neutral
+        Neutral
       </button>
       <button className={css.button} onClick={() => updateFeedback("bad")}>
-        bad
+        Bad
       </button>
       {totalFeedback > 0 && (
-        <button className={css.button} onClick={hendleFeedback}>
+        <button className={css.button} onClick={feedbackReset}>
           Reset
         </button>
       )}
+
     </div>
   );
 }
