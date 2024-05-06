@@ -1,8 +1,11 @@
 import css from './Feedback.module.css'
 
 export default function Feedback ({feedback}){
-   
+//   const resetFeedback=()=>{
+//     updateFeedback.state=[];     
+// }
   
+// console.log(Object.keys(feedback).length);
 
      return(
       

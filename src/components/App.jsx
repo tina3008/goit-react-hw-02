@@ -3,7 +3,7 @@
 import Description from './description/Description'
 import Feedback from './Feedback/Feedback';
 import Options from './Options/Options'
-
+import Notification from './Notification/Notification'
 const App = () => {
     const [state, setState] = useState({
         good: 0,
@@ -12,13 +12,22 @@ const App = () => {
       });
 
     
+let totalFeedback =0;
 
 const updateFeedback = feedbackType => {
+  
   setState({
       ...state,
     [feedbackType]: state[feedbackType] + 1,
-  });
-};
+  }); 
+ };
+
+ for (let i of Object.values(state)) {
+  totalFeedback += i;
+
+}
+
+
 
  return(
 
@@ -26,12 +35,10 @@ const updateFeedback = feedbackType => {
 <Description/>
 <Options
 updateFeedback={updateFeedback}
+totalFeedback={totalFeedback}
 />
 
-<Feedback
-feedback={state}
-
-/>
+{ totalFeedback > 0 ? <Feedback feedback={state} /> : <Notification/> }
 
 </>
  );

@@ -1,4 +1,4 @@
-export default function notification(){
+export default function Notification(){
 
     return(
         <p>no feeedback yet </p>
